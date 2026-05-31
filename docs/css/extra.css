@@ -90,3 +90,46 @@ article.md-content__inner {
     -webkit-mask-image: var(--md-admonition-icon--text);
     mask-image: var(--md-admonition-icon--text);
 }
+
+/* Report title palette */
+[data-md-color-scheme="default"] {
+    --title-h1: #0b3d91;
+    --title-h2: #005a8d;
+    --title-h3: #007f86;
+    --title-h4: #245b2a;
+    --title-h5: #4b5563;
+    --title-h6: #6b7280;
+}
+
+[data-md-color-scheme="slate"] {
+    --title-h1: #7cc4ff;
+    --title-h2: #5dd6ff;
+    --title-h3: #36e2d2;
+    --title-h4: #8bd39c;
+    --title-h5: #c6d0e1;
+    --title-h6: #9fb2c8;
+}
+
+.md-typeset h1 {
+    color: var(--title-h1);
+}
+
+.md-typeset h2 {
+    color: var(--title-h2);
+}
+
+.md-typeset h3 {
+    color: var(--title-h3);
+}
+
+.md-typeset h4 {
+    color: var(--title-h4);
+}
+
+.md-typeset h5 {
+    color: var(--title-h5);
+}
+
+.md-typeset h6 {
+    color: var(--title-h6);
+}
