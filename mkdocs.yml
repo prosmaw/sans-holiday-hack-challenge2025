@@ -38,20 +38,20 @@ theme:
     # Accent colors:
     # red, pink, purple, deep purple, indigo, blue, light blue, cyan, teal,
     # green, light green, lime, yellow, amber, orange, and deep orange.
-    # Palette toggle for light mode
-    - scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-night 
-        name: Switch to dark mode
-    # Palette toggle for dark mode
+    # Palette toggle for dark mode (default)
     - scheme: slate
       primary: teal
       accent: teal
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+    # Palette toggle for light mode
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
 extra:
   social:
     - icon: fontawesome/brands/x-twitter
