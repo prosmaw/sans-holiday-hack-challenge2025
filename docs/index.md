@@ -79,7 +79,7 @@ The Gnomes want to transform the neighborhood so that it’s frozen solid year-r
 !!! success "14. Dosis Network Down - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
     [Write-up](./objectives/o14.md)
 
-!!! success "15. Insert Objective 2 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+!!! success "15. Rogue Gnome Identity Provider - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
     [Write-up](./objectives/o15.md)
 
 !!! success "16. Quantgnome Leap - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
@@ -87,15 +87,6 @@ The Gnomes want to transform the neighborhood so that it’s frozen solid year-r
 
 !!! success "17. Going in Reverse - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
     [Write-up](./objectives/o17.md)
-
-!!! success "19. Insert Objective 2 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o19.md)
-
-!!! success "22. Insert Objective 2 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o22.md)
-
-!!! success "24. Insert Objective 2 Title - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o24.md)
 
 ## Act III
 
