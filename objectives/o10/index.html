@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1238,27 +1238,27 @@
 <p>The terminal session introduced the task and the Azure CLI environment.</p>
 <p><img alt="Screenshot 2026-04-21 144456" src="../../img/objectives/o10/Screenshot%202026-04-21%20144456.png" /></p>
 <p>The first task was to list all subscription names with the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List subscription names</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;[].name&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List subscription names</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="s2">"[].name"</span>
 </code></pre></div></td></tr></table></div>
 <p>The output showed the subscription names available in the tenant.</p>
 <p><img alt="Screenshot 2026-04-21 144534" src="../../img/objectives/o10/Screenshot%202026-04-21%20144534.png" /></p>
 <p>The next task was to list enabled subscriptions by ID and check Owner roles associated with each subscription.</p>
 <p>I first used the following command to list enabled subscriptions with IDs:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List enabled subscriptions</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;[?state==&#39;Enabled&#39;].{Name:name, ID:id}&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List enabled subscriptions</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>account<span class="w"> </span>list<span class="w"> </span>--query<span class="w"> </span><span class="s2">"[?state=='Enabled'].{Name:name, ID:id}"</span>
 </code></pre></div></td></tr></table></div>
 <p>I later used this command to list owner for each subscription replacing the appropriate subscription ID:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List Owner role assignments</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--scope<span class="w"> </span><span class="s2">&quot;/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64&quot;</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;[?roleDefinition==&#39;Owner&#39;]&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List Owner role assignments</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--scope<span class="w"> </span><span class="s2">"/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64"</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">"[?roleDefinition=='Owner']"</span>
 </code></pre></div></td></tr></table></div>
 <p>The results showed the Owner assignments for the first subscription (ID not shown on screenshot).</p>
 <p>There is a group present with the Owner permission.</p>
 <p><img alt="Screenshot 2026-04-21 144702" src="../../img/objectives/o10/Screenshot%202026-04-21%20144702.png" /></p>
 <p>The next task was to check Owner permission on the second subscription:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Owners for subscription 4d9d...</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--scope<span class="w"> </span><span class="s2">&quot;/subscriptions/4d9dbf2a-90b4-4d40-a97f-dc51f3c3d46e&quot;</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;[?roleDefinition==&#39;Owner&#39;]&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Owners for subscription 4d9d...</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--scope<span class="w"> </span><span class="s2">"/subscriptions/4d9dbf2a-90b4-4d40-a97f-dc51f3c3d46e"</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">"[?roleDefinition=='Owner']"</span>
 </code></pre></div></td></tr></table></div>
 <p>The output listed Owner permission for the subscription as well.</p>
 <p><img alt="Screenshot 2026-04-21 144733" src="../../img/objectives/o10/Screenshot%202026-04-21%20144733.png" /></p>
 <p>The next task was to check Owner assignments on the third subscription:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Owners for subscription 065c...</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--scope<span class="w"> </span><span class="s2">&quot;/subscriptions/065cc24a-077e-40b9-b666-2f4dd9f3a617&quot;</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">&quot;[?roleDefinition==&#39;Owner&#39;]&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Owners for subscription 065c...</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>role<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--scope<span class="w"> </span><span class="s2">"/subscriptions/065cc24a-077e-40b9-b666-2f4dd9f3a617"</span><span class="w"> </span>--query<span class="w"> </span><span class="s2">"[?roleDefinition=='Owner']"</span>
 </code></pre></div></td></tr></table></div>
 <p>The output identified a group named "IT Admins".</p>
 <p><img alt="Screenshot 2026-04-21 152942" src="../../img/objectives/o10/Screenshot%202026-04-21%20152942.png" /></p>
@@ -1274,6 +1274,14 @@
 <p><img alt="Screenshot 2026-04-21 153401" src="../../img/objectives/o10/Screenshot%202026-04-21%20153401.png" /></p>
 <p>The challenge was completed after identifying the permanently assigned Owner role.</p>
 <p><img alt="Screenshot 2026-04-21 153422" src="../../img/objectives/o10/Screenshot%202026-04-21%20153422.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<ul>
+<li>Avoid standing/permanent Owner assignments; use Microsoft Entra Privileged Identity Management (PIM) so elevation is just-in-time, time-bound, and requires approval.</li>
+<li>Apply least privilege, grant scoped custom roles for the specific resources an identity needs instead of subscription-wide Owner.</li>
+<li>Periodically audit role assignments (<code>az role assignment list</code>) across nested groups to catch stale or excessive standing access.</li>
+</ul>
+</div>
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">⚓︎</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">James</p>
@@ -1364,7 +1372,7 @@ See, I'm not crazy - the security really WAS misconfigured. Now maybe I can fina
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       

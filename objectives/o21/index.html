@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1276,6 +1276,10 @@ The instructions emphasized only testing the immediate <code>/register</code> pa
 <p><img alt="Screenshot 2026-01-14 222851" src="../../img/objectives/o21/Screenshot%202026-01-14%20222851.png" /></p>
 <p>I navigated to the <code>dev/dev_todos</code> endpoint under the <code>register</code> endpoint to stay in scope. I found a credential and got my first in-scope finding.</p>
 <p><img alt="Screenshot 2026-01-14 223156" src="../../img/objectives/o21/Screenshot%202026-01-14%20223156.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<p>Don't leave debug/dev artifacts (notes, TODOs, credentials) reachable on a deployed application. Keep them out of any web-accessible path, and store secrets in a secrets manager instead of plaintext notes.</p>
+</div>
 <h3 id="burp-interception-to-bypass-gnome-scope-blockers">Burp interception to bypass gnome scope blockers<a class="headerlink" href="#burp-interception-to-bypass-gnome-scope-blockers" title="Permanent link">⚓︎</a></h3>
 <p>The Gnome out of scope actions led to out of scope messages even on in-scope endpoints which led to termination of contract many times.
 I found this code showing the <code>/gnomeU</code> as the source of the small image that loads on the bottom-left of every page of the website.</p>
@@ -1293,6 +1297,10 @@ I found this code showing the <code>/gnomeU</code> as the source of the small im
 <p><img alt="Screenshot 2026-01-17 125556" src="../../img/objectives/o21/Screenshot%202026-01-17%20125556.png" /></p>
 <p>I checked the status report and got my second in-scope finding.</p>
 <p><img alt="Screenshot 2026-01-17 130254" src="../../img/objectives/o21/Screenshot%202026-01-17%20130254.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<p>Never trust a client-supplied header like <code>X-Forwarded-For</code> for access control. It's trivially spoofable. Enforce IP allow-listing at the proxy/network layer, or validate the value only against a known, trusted proxy chain.</p>
+</div>
 <h3 id="commented-course-search-and-client-side-unlock">Commented course search and client-side unlock<a class="headerlink" href="#commented-course-search-and-client-side-unlock" title="Permanent link">⚓︎</a></h3>
 <p>Reviewing the response HTML showed a commented-out course search link, suggesting hidden functionality.</p>
 <p><img alt="Screenshot 2026-01-17 130355" src="../../img/objectives/o21/Screenshot%202026-01-17%20130355.png" /></p>
@@ -1316,6 +1324,10 @@ I found this code showing the <code>/gnomeU</code> as the source of the small im
 <p><img alt="Screenshot 2026-01-17 211525" src="../../img/objectives/o21/Screenshot%202026-01-17%20211525.png" /></p>
 <p>A more effective SQL injection payload returned a longer list of courses, confirming the vulnerability.</p>
 <p><img alt="Screenshot 2026-01-17 211941" src="../../img/objectives/o21/Screenshot%202026-01-17%20211941.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<p>Parameterized queries (prepared statements) close this class of bug by treating user input strictly as data rather than executable SQL syntax, regardless of what characters the search field receives.</p>
+</div>
 <p>I scrolled the results and found a gnome course that appeared to be unauthorized content.</p>
 <p><img alt="Screenshot 2026-01-17 212047" src="../../img/objectives/o21/Screenshot%202026-01-17%20212047.png" /></p>
 <h3 id="reporting-the-gnome-course">Reporting the gnome course<a class="headerlink" href="#reporting-the-gnome-course" title="Permanent link">⚓︎</a></h3>
@@ -1340,6 +1352,13 @@ Also trying to access the course under the <code>register/wip/holiday_behavior</
 <p><img alt="Screenshot 2026-01-17 233011" src="../../img/objectives/o21/Screenshot%202026-01-17%20233011.png" /></p>
 <p>I updated the cookie with the correct token in a request to the hidden course path <code>register/wip/holiday_behavior</code> and got my last in-scope finding.</p>
 <p><img alt="Screenshot 2026-01-17 221752" src="../../img/objectives/o21/Screenshot%202026-01-17%20221752.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<ul>
+<li>Use a cryptographically random session/access token with enough length and entropy that brute-forcing it is computationally infeasible, not just impractical by hand.</li>
+<li>Rate-limit or lock out repeated failed attempts against sensitive cookies/tokens so a guessing attack can't run to completion even against a marginal keyspace.</li>
+</ul>
+</div>
 <p>After clicking on finalize the test, I was sent to the success page.</p>
 <p><img alt="Screenshot 2026-01-17 221820" src="../../img/objectives/o21/Screenshot%202026-01-17%20221820.png" /></p>
 <p>A report of the findings was available at the bottom of the page.</p>
@@ -1437,7 +1456,7 @@ Also trying to access the course under the <code>register/wip/holiday_behavior</
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       

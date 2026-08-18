@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1465,18 +1465,18 @@ bytes → ASCII string  →  XOR key for next stage
 <span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">previous_t</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;marker&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stop marker received. Closing WebSocket.&quot;</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'v'</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'marker'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="s2">"stop"</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Stop marker received. Closing WebSocket."</span><span class="p">)</span>
         <span class="n">ws</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">time</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">previous_t</span>
         <span class="k">if</span> <span class="n">v</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">pulse_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;High&quot;</span><span class="p">})</span>
+            <span class="n">pulse_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s2">"v"</span><span class="p">:</span> <span class="s2">"High"</span><span class="p">})</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">pulse_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="s2">&quot;Low&quot;</span><span class="p">})</span>
+            <span class="n">pulse_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s2">"v"</span><span class="p">:</span> <span class="s2">"Low"</span><span class="p">})</span>
         <span class="n">time_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">time</span> <span class="o">==</span> <span class="n">short</span><span class="p">:</span>
             <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -1486,15 +1486,15 @@ bytes → ASCII string  →  XOR key for next stage
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_error</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">close_status_code</span><span class="p">,</span> <span class="n">close_msg</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WebSocket closed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"WebSocket closed"</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_open</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WebSocket connection opened&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"WebSocket connection opened"</span><span class="p">)</span>
 
-<span class="n">ws_url</span> <span class="o">=</span> <span class="s2">&quot;wss://signals.holidayhackchallenge.com/wire/dq&quot;</span>
+<span class="n">ws_url</span> <span class="o">=</span> <span class="s2">"wss://signals.holidayhackchallenge.com/wire/dq"</span>
 <span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="o">.</span><span class="n">WebSocketApp</span><span class="p">(</span><span class="n">ws_url</span><span class="p">,</span>
                             <span class="n">on_open</span><span class="o">=</span><span class="n">on_open</span><span class="p">,</span>
                             <span class="n">on_message</span><span class="o">=</span><span class="n">on_message</span><span class="p">,</span>
@@ -1505,12 +1505,12 @@ bytes → ASCII string  →  XOR key for next stage
 
 <span class="n">bytes_list</span> <span class="o">=</span> <span class="n">bits_to_bytes</span><span class="p">(</span><span class="n">data_list</span><span class="p">)</span>
 
-<span class="c1"># print(&quot;Collected values:&quot;, pulse_list,)</span>
-<span class="c1"># print(&quot;Collected times:&quot;, time_list,)</span>
-<span class="c1"># print(&quot;Data list :&quot;, data_list)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bytes list :&quot;</span><span class="p">,</span> <span class="n">bytes_list</span><span class="p">)</span>
-<span class="n">ascii_output</span> <span class="o">=</span>  <span class="nb">bytes</span><span class="p">(</span><span class="n">bytes_list</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ASCII Output:&quot;</span><span class="p">,</span> <span class="n">ascii_output</span><span class="p">)</span>
+<span class="c1"># print("Collected values:", pulse_list,)</span>
+<span class="c1"># print("Collected times:", time_list,)</span>
+<span class="c1"># print("Data list :", data_list)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Bytes list :"</span><span class="p">,</span> <span class="n">bytes_list</span><span class="p">)</span>
+<span class="n">ascii_output</span> <span class="o">=</span>  <span class="nb">bytes</span><span class="p">(</span><span class="n">bytes_list</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ASCII Output:"</span><span class="p">,</span> <span class="n">ascii_output</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>The script helped to decrypt the sent data and get the XOR key <code>icy</code>.</p>
 <p><img alt="Screenshot 2026-01-24 014617" src="../../img/objectives/o23/Screenshot%202026-01-24%20014617.png" /></p>
@@ -1534,7 +1534,7 @@ bytes → ASCII string  →  XOR key for next stage
 <div class="highlight"><pre><span></span><code>Two WebSocket streams (MOSI and SCK)
     │
     ▼
-Buffer until &quot;idle-low&quot; marker seen twice
+Buffer until "idle-low" marker seen twice
     │
     ▼
 For each SCK sample event:
@@ -1654,7 +1654,7 @@ bytes → ASCII string  →  XOR key for next stage
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">WebSocketCollector</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1668,36 +1668,36 @@ bytes → ASCII string  →  XOR key for next stage
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;marker&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;idle-low&quot;</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'marker'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">"idle-low"</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">idle_count</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_count</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Idle-low marker received 2 times with t=0. Closing WebSocket.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Idle-low marker received 2 times with t=0. Closing WebSocket."</span><span class="p">)</span>
             <span class="n">ws</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">idle_count</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">return</span>
 
-        <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
-        <span class="n">t</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;marker&#39;</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'v'</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'marker'</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;mosi&quot;</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;data-bit&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="n">v</span><span class="p">})</span>
-            <span class="c1">#print(f&quot;Received mosi value: {v}&quot;)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"mosi"</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">"data-bit"</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s2">"v"</span><span class="p">:</span> <span class="n">v</span><span class="p">})</span>
+            <span class="c1">#print(f"Received mosi value: {v}")</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;sck&quot;</span> <span class="ow">and</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;sample&quot;</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="n">v</span><span class="p">})</span>
-            <span class="c1">#print(f&quot;Received value: {v}&quot;)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"sck"</span> <span class="ow">and</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">"sample"</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"t"</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s2">"v"</span><span class="p">:</span> <span class="n">v</span><span class="p">})</span>
+            <span class="c1">#print(f"Received value: {v}")</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">close_status_code</span><span class="p">,</span> <span class="n">close_msg</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket closed&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket closed"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket connection opened&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket connection opened"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ws</span><span class="o">.</span><span class="n">run_forever</span><span class="p">()</span>
@@ -1706,8 +1706,8 @@ bytes → ASCII string  →  XOR key for next stage
     <span class="n">combined_samples</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sck_data</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mosi_data</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]:</span>
-                <span class="n">m_sample</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]:</span>
+                <span class="n">m_sample</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="s1">'v'</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">break</span>
         <span class="n">combined_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m_sample</span><span class="p">)</span>
@@ -1725,29 +1725,29 @@ bytes → ASCII string  →  XOR key for next stage
         <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">byte</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">xor_repeat_key</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;icy&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">xor_repeat_key</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="sa">b</span><span class="s2">"icy"</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">b</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
-<span class="n">mosi_ws_url</span> <span class="o">=</span> <span class="s2">&quot;wss://signals.holidayhackchallenge.com/wire/mosi&quot;</span>
-<span class="n">sck_ws_url</span> <span class="o">=</span> <span class="s2">&quot;wss://signals.holidayhackchallenge.com/wire/sck&quot;</span>
+<span class="n">mosi_ws_url</span> <span class="o">=</span> <span class="s2">"wss://signals.holidayhackchallenge.com/wire/mosi"</span>
+<span class="n">sck_ws_url</span> <span class="o">=</span> <span class="s2">"wss://signals.holidayhackchallenge.com/wire/sck"</span>
 
-<span class="n">mosi_collector</span><span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">mosi_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mosi&quot;</span><span class="p">)</span>
-<span class="n">sck_collector</span> <span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">sck_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sck&quot;</span><span class="p">)</span>
+<span class="n">mosi_collector</span><span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">mosi_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"mosi"</span><span class="p">)</span>
+<span class="n">sck_collector</span> <span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">sck_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sck"</span><span class="p">)</span>
 
 <span class="n">mosi_collector</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">sck_collector</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="n">sampled_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="p">(</span><span class="n">mosi_collector</span><span class="o">.</span><span class="n">data_list</span><span class="p">,</span> <span class="n">sck_collector</span><span class="o">.</span><span class="n">data_list</span><span class="p">)</span>
 <span class="n">bytes_list</span> <span class="o">=</span> <span class="n">bits_to_bytes_msb</span><span class="p">(</span><span class="n">sampled_data</span><span class="p">)</span>
-<span class="n">decrypted_bytes</span> <span class="o">=</span> <span class="n">xor_repeat_key</span><span class="p">(</span><span class="n">bytes_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;icy&quot;</span><span class="p">)</span>
+<span class="n">decrypted_bytes</span> <span class="o">=</span> <span class="n">xor_repeat_key</span><span class="p">(</span><span class="n">bytes_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">"icy"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sampled data:&quot;</span><span class="p">,</span> <span class="n">sampled_data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bytes list :&quot;</span><span class="p">,</span> <span class="n">bytes_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sampled data:"</span><span class="p">,</span> <span class="n">sampled_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Bytes list :"</span><span class="p">,</span> <span class="n">bytes_list</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR decrypted (hex):&quot;</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR decrypted (ASCII):&quot;</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin-1&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR decrypted (hex):"</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR decrypted (ASCII):"</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'latin-1'</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <p>After sampling MOSI on SCK edges and assembling MSB-first bytes, the SPI payload decodes into the next XOR key <code>bananza</code>.</p>
 <p><img alt="Screenshot 2026-01-25 003218" src="../../img/objectives/o23/Screenshot%202026-01-25%20003218.png" /></p>
@@ -1774,7 +1774,7 @@ bytes → ASCII string  →  XOR key for next stage
 <div class="highlight"><pre><span></span><code>Two WebSocket streams (SDA and SCL)
     │
     ▼
-Buffer until &quot;bus-idle&quot; marker seen twice
+Buffer until "bus-idle" marker seen twice
     │
     ▼
 For each SCL sample event:
@@ -1792,7 +1792,7 @@ bits_to_bytes_msb() — 8 bits at a time, MSB-first
 (byte = (byte &lt;&lt; 1) | bit)
     │
     ▼
-XOR decrypt with key from SPI stage (&quot;bananza&quot;)
+XOR decrypt with key from SPI stage ("bananza")
     │
     ▼
 bytes → ASCII string  →  temperature value
@@ -1948,7 +1948,7 @@ bytes → ASCII string  →  temperature value
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">WebSocketCollector</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1962,36 +1962,36 @@ bytes → ASCII string  →  temperature value
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;marker&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;bus-idle&quot;</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'marker'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">"bus-idle"</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">idle_count</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">idle_count</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Idle-low marker received 2 times with t=0. Closing WebSocket.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Idle-low marker received 2 times with t=0. Closing WebSocket."</span><span class="p">)</span>
             <span class="n">ws</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">idle_count</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">return</span>
 
-        <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>
-        <span class="n">t</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;marker&#39;</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'v'</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'marker'</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;sda&quot;</span> <span class="ow">and</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;data-bit&quot;</span> <span class="ow">or</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;address-bit&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"sda"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="s2">"data-bit"</span> <span class="ow">or</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">"address-bit"</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="c1">#print(f&quot;Received mosi value: {v}&quot;)</span>
+            <span class="c1">#print(f"Received mosi value: {v}")</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;scl&quot;</span> <span class="ow">and</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;data-sample&quot;</span> <span class="ow">or</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">&quot;address-sample&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"scl"</span> <span class="ow">and</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="s2">"data-sample"</span> <span class="ow">or</span> <span class="n">marker</span> <span class="o">==</span> <span class="s2">"address-sample"</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-            <span class="c1">#print(f&quot;Received value: {v}&quot;)</span>
+            <span class="c1">#print(f"Received value: {v}")</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">close_status_code</span><span class="p">,</span> <span class="n">close_msg</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket closed&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket closed"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">on_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ws</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket connection opened&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> WebSocket connection opened"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ws</span><span class="o">.</span><span class="n">run_forever</span><span class="p">()</span>
@@ -2000,20 +2000,20 @@ bytes → ASCII string  →  temperature value
     <span class="n">data_samples</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">address_samples</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">scl</span> <span class="ow">in</span> <span class="n">scl_data</span><span class="p">:</span>
-        <span class="n">is_data</span> <span class="o">=</span> <span class="n">scl</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;data-sample&quot;</span>
+        <span class="n">is_data</span> <span class="o">=</span> <span class="n">scl</span><span class="p">[</span><span class="s1">'marker'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"data-sample"</span>
         <span class="k">for</span> <span class="n">sda</span> <span class="ow">in</span> <span class="n">sda_data</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">scl</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;data-sample&quot;</span> <span class="ow">and</span> <span class="n">sda</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">scl</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]:</span>
-                <span class="n">data_sample</span> <span class="o">=</span> <span class="n">sda</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="n">scl</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;address-sample&quot;</span> <span class="ow">and</span> <span class="n">sda</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">scl</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]:</span>
-                <span class="n">address_sample</span> <span class="o">=</span> <span class="n">sda</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">scl</span><span class="p">[</span><span class="s1">'marker'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"data-sample"</span> <span class="ow">and</span> <span class="n">sda</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">scl</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]:</span>
+                <span class="n">data_sample</span> <span class="o">=</span> <span class="n">sda</span><span class="p">[</span><span class="s1">'v'</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">scl</span><span class="p">[</span><span class="s1">'marker'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"address-sample"</span> <span class="ow">and</span> <span class="n">sda</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">scl</span><span class="p">[</span><span class="s1">'t'</span><span class="p">]:</span>
+                <span class="n">address_sample</span> <span class="o">=</span> <span class="n">sda</span><span class="p">[</span><span class="s1">'v'</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">break</span>
         <span class="k">if</span> <span class="n">is_data</span><span class="p">:</span> 
             <span class="n">data_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_sample</span><span class="p">)</span>
-            <span class="c1"># print(f&quot;Data Sample Added: {data_sample}&quot;)</span>
+            <span class="c1"># print(f"Data Sample Added: {data_sample}")</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_data</span><span class="p">:</span>
             <span class="n">address_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">address_sample</span><span class="p">)</span>
-            <span class="c1"># print(f&quot;Address Sample Added: {address_sample}&quot;)</span>
+            <span class="c1"># print(f"Address Sample Added: {address_sample}")</span>
     <span class="k">return</span> <span class="n">data_samples</span><span class="p">,</span> <span class="n">address_samples</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">bits_to_bytes_msb</span><span class="p">(</span><span class="n">bits</span><span class="p">):</span>
@@ -2045,53 +2045,53 @@ bytes → ASCII string  →  temperature value
     <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="nb">hex</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_data_at_addresses</span><span class="p">(</span><span class="n">data_bits</span><span class="p">,</span> <span class="n">address_bits</span><span class="p">):</span>
-    <span class="c1"># print(&quot;Data bits length:&quot;, len(data_bits))</span>
+    <span class="c1"># print("Data bits length:", len(data_bits))</span>
     <span class="n">address</span><span class="p">,</span> <span class="n">address_hex</span> <span class="o">=</span> <span class="n">decode_address</span><span class="p">(</span><span class="n">address_bits</span><span class="p">)</span>
-    <span class="c1"># print(&quot;Decoded addresses (hex):&quot;, address_hex)</span>
+    <span class="c1"># print("Decoded addresses (hex):", address_hex)</span>
     <span class="n">data_start</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">data_end</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">address_hex</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">address_hex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;3c&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">address_hex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'3c'</span><span class="p">:</span>
             <span class="n">data_start</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mi">24</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found address 0x3c at index </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, data starts at bit index </span><span class="si">{</span><span class="n">data_start</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found address 0x3c at index </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, data starts at bit index </span><span class="si">{</span><span class="n">data_start</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
             <span class="n">data_end</span> <span class="o">=</span> <span class="n">data_start</span> <span class="o">+</span> <span class="mi">25</span>
             <span class="k">break</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_start</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_bits</span><span class="p">)):</span>
-        <span class="c1"># print(f&quot;Data bit at index {i}: {data_bits[i]}&quot;)</span>
+        <span class="c1"># print(f"Data bit at index {i}: {data_bits[i]}")</span>
         <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_bits</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">out</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">xor_repeat_key</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;bananza&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">xor_repeat_key</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="sa">b</span><span class="s2">"bananza"</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">b</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
-<span class="n">sda_ws_url</span> <span class="o">=</span> <span class="s2">&quot;wss://signals.holidayhackchallenge.com/wire/sda&quot;</span>
-<span class="n">scl_ws_url</span> <span class="o">=</span> <span class="s2">&quot;wss://signals.holidayhackchallenge.com/wire/scl&quot;</span>
+<span class="n">sda_ws_url</span> <span class="o">=</span> <span class="s2">"wss://signals.holidayhackchallenge.com/wire/sda"</span>
+<span class="n">scl_ws_url</span> <span class="o">=</span> <span class="s2">"wss://signals.holidayhackchallenge.com/wire/scl"</span>
 
-<span class="n">sda_collector</span><span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">sda_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sda&quot;</span><span class="p">)</span>
-<span class="n">scl_collector</span> <span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">scl_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;scl&quot;</span><span class="p">)</span>
+<span class="n">sda_collector</span><span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">sda_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sda"</span><span class="p">)</span>
+<span class="n">scl_collector</span> <span class="o">=</span> <span class="n">WebSocketCollector</span><span class="p">(</span><span class="n">scl_ws_url</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"scl"</span><span class="p">)</span>
 
 <span class="n">sda_collector</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="n">scl_collector</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-<span class="c1"># print(&quot;Collected values for sda:&quot;, sda_collector.data_list)</span>
-<span class="c1"># print(&quot;Collected values for scl:&quot;, scl_collector.data_list)</span>
+<span class="c1"># print("Collected values for sda:", sda_collector.data_list)</span>
+<span class="c1"># print("Collected values for scl:", scl_collector.data_list)</span>
 
 <span class="n">sampled_data</span><span class="p">,</span> <span class="n">address_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="p">(</span><span class="n">sda_collector</span><span class="o">.</span><span class="n">data_list</span><span class="p">,</span> <span class="n">scl_collector</span><span class="o">.</span><span class="n">data_list</span><span class="p">)</span>
 <span class="n">temp_add_data</span> <span class="o">=</span> <span class="n">get_data_at_addresses</span><span class="p">(</span><span class="n">sampled_data</span><span class="p">,</span> <span class="n">address_data</span><span class="p">)</span>
 <span class="n">data_bytes_list</span> <span class="o">=</span> <span class="n">bits_to_bytes_msb</span><span class="p">(</span><span class="n">temp_add_data</span><span class="p">)</span>
 <span class="n">address_bytes_list</span><span class="p">,</span> <span class="n">address_hex_list</span> <span class="o">=</span> <span class="n">decode_address</span><span class="p">(</span><span class="n">address_data</span><span class="p">)</span>
-<span class="n">data_ascii</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data_bytes_list</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="n">decrypted_bytes</span> <span class="o">=</span> <span class="n">xor_repeat_key</span><span class="p">(</span><span class="n">data_bytes_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">&quot;bananza&quot;</span><span class="p">)</span>
+<span class="n">data_ascii</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data_bytes_list</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">)</span>
+<span class="n">decrypted_bytes</span> <span class="o">=</span> <span class="n">xor_repeat_key</span><span class="p">(</span><span class="n">data_bytes_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s2">"bananza"</span><span class="p">)</span>
 
-<span class="c1">#print(&quot;Sampled data:&quot;, sampled_data)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bytes list :&quot;</span><span class="p">,</span> <span class="n">data_bytes_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Address Bytes list :&quot;</span><span class="p">,</span> <span class="n">address_bytes_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Address hex Output:&quot;</span><span class="p">,</span> <span class="n">address_hex_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR decrypted (hex):&quot;</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR decrypted (ASCII):&quot;</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">))</span>
+<span class="c1">#print("Sampled data:", sampled_data)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Bytes list :"</span><span class="p">,</span> <span class="n">data_bytes_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Address Bytes list :"</span><span class="p">,</span> <span class="n">address_bytes_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Address hex Output:"</span><span class="p">,</span> <span class="n">address_hex_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR decrypted (hex):"</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR decrypted (ASCII):"</span><span class="p">,</span> <span class="n">decrypted_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'ascii'</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">'ignore'</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 <p>Once the I2C transaction for address 0x3C was decoded and XOR-decrypted, the temperature value appeared.</p>
 <p><img alt="Screenshot 2026-01-25 235430" src="../../img/objectives/o23/Screenshot%202026-01-25%20235430.png" /></p>
@@ -2192,7 +2192,7 @@ bytes → ASCII string  →  temperature value
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       

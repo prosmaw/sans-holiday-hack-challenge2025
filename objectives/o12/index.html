@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1241,27 +1241,27 @@
 <p>This showed that the mailbox contains: Spam, Sent, Archives, Drafts and Inbox.</p>
 <p><img alt="Screenshot 2025-12-31 112950" src="../../img/objectives/o12/Screenshot%202025-12-31%20112950.png" /></p>
 <p>I decided to check the inbox. I used the following command to check the number of emails and their status:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Select INBOX</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosimail:holidaymagic<span class="w"> </span>imap://localhost<span class="w"> </span>-X<span class="w"> </span><span class="s2">&quot;SELECT INBOX&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Select INBOX</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosimail:holidaymagic<span class="w"> </span>imap://localhost<span class="w"> </span>-X<span class="w"> </span><span class="s2">"SELECT INBOX"</span>
 </code></pre></div></td></tr></table></div>
 <p>The response showed the inbox had seven emails and one unseen.</p>
 <p><img alt="Screenshot 2025-12-31 113004" src="../../img/objectives/o12/Screenshot%202025-12-31%20113004.png" /></p>
 <p>I pulled the header of the first message using the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Read INBOX message headers</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">&quot;imap://localhost/INBOX;MAILINDEX=1;SECTION=HEADER&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Read INBOX message headers</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">"imap://localhost/INBOX;MAILINDEX=1;SECTION=HEADER"</span>
 </code></pre></div></td></tr></table></div>
 <p>The email was sent from a local neighborhood address, so it did not need further investigation.</p>
 <p><img alt="Screenshot 2025-12-31 114152" src="../../img/objectives/o12/Screenshot%202025-12-31%20114152.png" /></p>
 <p>Next, I checked the Spam folder:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Examine Spam</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">&quot;imap://localhost/INBOX&quot;</span><span class="w"> </span>-X<span class="w"> </span><span class="s2">&quot;EXAMINE Spam&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Examine Spam</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">"imap://localhost/INBOX"</span><span class="w"> </span>-X<span class="w"> </span><span class="s2">"EXAMINE Spam"</span>
 </code></pre></div></td></tr></table></div>
 <p>The output showed three spam messages, two unseen.</p>
 <p><img alt="Screenshot 2025-12-31 115942" src="../../img/objectives/o12/Screenshot%202025-12-31%20115942.png" /></p>
 <p>I reviewed the second spam message headers:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Read Spam message headers</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">&quot;imap://localhost/Spam;MAILINDEX=2;SECTION=HEADER&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Read Spam message headers</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">"imap://localhost/Spam;MAILINDEX=2;SECTION=HEADER"</span>
 </code></pre></div></td></tr></table></div>
 <p>The message came from an external address <code>frost-command.mysterymastermind.mail</code> and needed closer review.</p>
 <p><img alt="Screenshot 2025-12-31 120616" src="../../img/objectives/o12/Screenshot%202025-12-31%20120616.png" /></p>
 <p>I opened the body of the spam message:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Read Spam message body</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">&quot;imap://localhost/Spam;MAILINDEX=2;SECTION=TEXT&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Read Spam message body</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>curl<span class="w"> </span>-u<span class="w"> </span>dosismail:holidaymagic<span class="w"> </span><span class="s2">"imap://localhost/Spam;MAILINDEX=2;SECTION=TEXT"</span>
 </code></pre></div></td></tr></table></div>
 <p>The email contained a crypto miner JavaScript function. This confirmed what Maurice said.</p>
 <p><img alt="Screenshot 2025-12-31 120730" src="../../img/objectives/o12/Screenshot%202025-12-31%20120730.png" /></p>
@@ -1363,7 +1363,7 @@ The URL was: <code>https://frostbin.atnas.mail/api/paste</code>.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       

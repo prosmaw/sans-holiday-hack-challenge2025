@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../img/misc/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1260,12 +1260,12 @@ The first storage account's blob service properties were checked using:</p>
 <p>The container list showed a <code>$web</code> container.</p>
 <p><img alt="Screenshot 2026-04-20 193902" src="../../img/objectives/o8/Screenshot%202026-04-20%20193902.png" /></p>
 <p>Task 5 was to list blobs in the <code>$web</code> container using the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List blobs in $web</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>list<span class="w"> </span>--account-name<span class="w"> </span>neighborhoodhoa<span class="w"> </span>--container-name<span class="w"> </span><span class="s1">&#39;$web&#39;</span><span class="w"> </span>--output<span class="w"> </span>table<span class="w"> </span>--auth-mode<span class="w"> </span>login
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">List blobs in $web</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>list<span class="w"> </span>--account-name<span class="w"> </span>neighborhoodhoa<span class="w"> </span>--container-name<span class="w"> </span><span class="s1">'$web'</span><span class="w"> </span>--output<span class="w"> </span>table<span class="w"> </span>--auth-mode<span class="w"> </span>login
 </code></pre></div></td></tr></table></div>
 <p>The blob list included <code>iac/terraform.tfvars</code>.
 <img alt="Screenshot 2026-04-20 194239" src="../../img/objectives/o8/Screenshot%202026-04-20%20194239.png" /></p>
 <p>The next task was to download the tfvars file and review its contents with the command:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Download terraform.tfvars</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>download<span class="w"> </span>--account-name<span class="w"> </span>neighborhoodhoa<span class="w"> </span>--container-name<span class="w"> </span><span class="s1">&#39;$web&#39;</span><span class="w"> </span>--name<span class="w"> </span>iac/terraform.tfvars<span class="w"> </span>--file<span class="w"> </span>/dev/stdout<span class="w"> </span>--auth-mode<span class="w"> </span>login<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Download terraform.tfvars</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>download<span class="w"> </span>--account-name<span class="w"> </span>neighborhoodhoa<span class="w"> </span>--container-name<span class="w"> </span><span class="s1">'$web'</span><span class="w"> </span>--name<span class="w"> </span>iac/terraform.tfvars<span class="w"> </span>--file<span class="w"> </span>/dev/stdout<span class="w"> </span>--auth-mode<span class="w"> </span>login<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div></td></tr></table></div>
 <p>The download of the tfvars file shows that the file contains sensitive information.</p>
 <p><img alt="Screenshot 2026-04-20 195103" src="../../img/objectives/o8/Screenshot%202026-04-20%20195103.png" /></p>
@@ -1274,6 +1274,14 @@ The first storage account's blob service properties were checked using:</p>
 <p><img alt="Screenshot 2026-04-20 195210" src="../../img/objectives/o8/Screenshot%202026-04-20%20195210.png" /></p>
 <p>The objective was added to the achievements list.</p>
 <p><img alt="Screenshot 2026-05-26 020735" src="../../img/objectives/o8/Screenshot%202026-05-26%20020735.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Prevention</p>
+<ul>
+<li>Never deploy Terraform state or <code>.tfvars</code> files into a publicly-served <code>$web</code> container (or any web root); keep IaC artifacts out of static-site deployment pipelines entirely.</li>
+<li>Keep secrets like SAS tokens out of IaC variable files — pull them from Key Vault at apply-time instead of hardcoding them.</li>
+<li>Scope any SAS token as tightly as possible (specific resource, read-only where practical, short expiry) instead of issuing broad read-write-delete tokens.</li>
+</ul>
+</div>
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">⚓︎</a></h2>
 <div class="admonition quote">
 <p class="admonition-title">Barry</p>
@@ -1363,7 +1371,7 @@ The first storage account's blob service properties were checked using:</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["toc.integrate", "content.code.copy", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       
