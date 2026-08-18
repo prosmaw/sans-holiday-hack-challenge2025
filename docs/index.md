@@ -4,9 +4,9 @@
 
 ## Introduction
 
-The SANS Holiday Hack Challenge 2025 dropped participants into a winter town taken by mischievous gnomes, breaking things across city hall, the hotel, the park, and the retro shop. The challenge spans 27 objectives across five difficulty tiers, covering a offensive and defensive security topics.
+The SANS Holiday Hack Challenge 2025 dropped participants into a winter town taken by mischievous gnomes, breaking things across city hall, the hotel, the park, and the retro shop. The challenge spans 27 objectives across five difficulty tiers, covering offensive and defensive security topics.
 
-I completed 21 of the 27 objectives, spanning cloud security (Azure RBAC, storage, and network misconfigurations), web application exploitation (IDOR, JWT/JWKS spoofing, Firebase leaks), core networking and firewalls, digital forensics and reverse engineering, and hardware signal analysis (1-Wire, SPI, I²C) — capped off with a chained RCE-to-privilege-escalation exploit. Each card in the [Answers](#answers) section below names the topic and technique used to solve it — click through for the full write-up.
+I completed 21 of the 27 objectives, spanning cloud security (Azure RBAC, storage, and network misconfigurations), web application exploitation (IDOR, JWT/JWKS spoofing, Firebase leaks), core networking and firewalls, digital forensics and reverse engineering, and hardware signal analysis (1-Wire, SPI, I²C) and proposed prevention for exploitation objectives.
 
 <!-- ### Story
 
@@ -42,7 +42,7 @@ The Gnomes want to transform the neighborhood so that it’s frozen solid year-r
     !!! success card "2. Neighborhood Watch Bypass - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
         [Linux privilege escalation : escalated from a restricted shell to admin access to restore the fire alarm system.](./objectives/o2.md){: .card-link }
 
-    !!! success card "3. Santa's Gift-Tracking Service Port - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+    !!! success card "3. Santa's Gift-Tracking Service Port Mystery- :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
         [Network service enumeration : used `ss` to locate a relocated service's listening port and validated it with `curl`.](./objectives/o3.md){: .card-link }
 
     !!! success card "4. Visual Networking Thinger - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
