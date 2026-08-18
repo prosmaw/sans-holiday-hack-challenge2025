@@ -4,11 +4,11 @@
 
 ## Introduction
 
-The SANS Holiday Hack Challenge 2025 dropped participants into a winter town taken over by gnomes. The gnomes were breaking things across city hall, the hotel, the park, and the retro shop. The challenge covers multi-domain CTF on a total of 27 objectives and five difficulty tiers.
+The SANS Holiday Hack Challenge 2025 dropped participants into a winter town taken by mischievous gnomes, breaking things across city hall, the hotel, the park, and the retro shop. The challenge spans 27 objectives across five difficulty tiers, covering a offensive and defensive security topics.
 
-I worked on 21 objective covering a wide range of discipline: hunting leaked SAS (Shared Access Signature) tokenand misconfigured Azure Storage accounts, exploiting IDOR (Insecure Direct Object Reference) vulnerabilities, cracking IMAP configurations, reverse engineering binaries, and performing RCE with privilege escalation. 
+I completed 21 of the 27 objectives, spanning cloud security (Azure RBAC, storage, and network misconfigurations), web application exploitation (IDOR, JWT/JWKS spoofing, Firebase leaks), core networking and firewalls, digital forensics and reverse engineering, and hardware signal analysis (1-Wire, SPI, I²C) — capped off with a chained RCE-to-privilege-escalation exploit. Each card in the [Answers](#answers) section below names the topic and technique used to solve it — click through for the full write-up.
 
-### Story
+<!-- ### Story
 
 ACT I
 
@@ -20,7 +20,7 @@ The Gnomes’ nefarious plot seems to involve stealing refrigerator parts. But w
 
 ACT III
 
-The Gnomes want to transform the neighborhood so that it’s frozen solid year-round, an environmental disaster. But who is the mastermind behind the Gnomes’ wickedness?
+The Gnomes want to transform the neighborhood so that it’s frozen solid year-round, an environmental disaster. But who is the mastermind behind the Gnomes’ wickedness? -->
 
 ### Map
 
@@ -33,71 +33,72 @@ The Gnomes want to transform the neighborhood so that it’s frozen solid year-r
 
 ## Answers
 
-## Act I
 
-!!! success "1. Its All About Defang - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o1.md)
+??? success "Act I"
 
-!!! success "2. Neighborhood Watch Bypass - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o2.md)
+    !!! success card "1. Its All About Defang - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Phishing & IOC analysis : investigated a malicious email and defanged/reported its indicators of compromise.](./objectives/o1.md){: .card-link }
 
-!!! success "3. Santa's Gift-Tracking Service Port - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o3.md)
+    !!! success card "2. Neighborhood Watch Bypass - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Linux privilege escalation : escalated from a restricted shell to admin access to restore the fire alarm system.](./objectives/o2.md){: .card-link }
 
-!!! success "4. Visual Networking Thinger - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o4.md)
+    !!! success card "3. Santa's Gift-Tracking Service Port - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Network service enumeration : used `ss` to locate a relocated service's listening port and validated it with `curl`.](./objectives/o3.md){: .card-link }
 
-!!! success "5. Visual Firewall Thinger - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o5.md)
+    !!! success card "4. Visual Networking Thinger - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Core networking protocols : walked through DNS, TCP handshake, HTTP, TLS, and HTTPS flows in an interactive packet simulator.](./objectives/o4.md){: .card-link }
 
-!!! success "6. Intro to Nmap - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o6.md)
+    !!! success card "5. Visual Firewall Thinger - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Firewall rule design : configured zone-based firewall rules to enforce least-privilege access between network segments.](./objectives/o5.md){: .card-link }
 
-!!! success "7. Blob Storage Challenge in the neighborhood - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o7.md)
+    !!! success card "6. Intro to Nmap - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Network scanning with Nmap : ran targeted and full-range scans to discover open ports and hidden services.](./objectives/o6.md){: .card-link }
 
-!!! success "8. Spare Key - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o8.md)
+    !!! success card "7. Blob Storage Challenge in the neighborhood - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Azure Storage auditing : used the Azure CLI to find a storage account with public blob access misconfigured.](./objectives/o7.md){: .card-link }
 
-!!! success "9. The Open Door - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o9.md)
+    !!! success card "8. Spare Key - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Azure least-privilege review : audited storage accounts via CLI to uncover an exposed website leaking a spare credential.](./objectives/o8.md){: .card-link }
 
-!!! success "10. Owner - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o10.md)
+    !!! success card "9. The Open Door - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Azure NSG auditing : enumerated Network Security Groups via CLI to find a rule exposing RDP/SSH to the internet.](./objectives/o9.md){: .card-link }
 
-## Act II
+    !!! success card "10. Owner - :fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Azure RBAC auditing : queried subscriptions and role assignments via CLI to find identities with standing Owner access.](./objectives/o10.md){: .card-link }
 
-!!! success "11. Retro Recovery - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o11.md)
+??? success "Act II"
 
-!!! success "12. Mail Detective - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o12.md)
+    !!! success card "11. Retro Recovery - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Disk image forensics : mounted and analyzed a FAT12 floppy disk image to recover hidden files.](./objectives/o11.md){: .card-link }
 
-!!! success "13. IDORable Bistro - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o13.md)
+    !!! success card "12. Mail Detective - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [IMAP investigation : used `curl` to enumerate a mailbox over IMAP and trace a phishing lead to a pastebin URL.](./objectives/o12.md){: .card-link }
 
-!!! success "14. Dosis Network Down - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o14.md)
+    !!! success card "13. IDORable Bistro - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [IDOR exploitation : manipulated a receipt endpoint's object reference to enumerate records and identify a target customer.](./objectives/o13.md){: .card-link }
 
-!!! success "15. Rogue Gnome Identity Provider - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o15.md)
+    !!! success card "14. Dosis Network Down - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Router RCE (CVE-2023-1389) : exploited an unauthenticated command injection flaw to recover the Wi-Fi password from a router's config.](./objectives/o14.md){: .card-link }
 
-!!! success "16. Quantgnome Leap - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o16.md)
+    !!! success card "15. Rogue Gnome Identity Provider - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [JWT/JWKS spoofing : forged a JWKS-based JWT to escalate privileges and identify the malicious firmware being served.](./objectives/o15.md){: .card-link }
 
-!!! success "17. Going in Reverse - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o17.md)
+    !!! success card "16. Quantgnome Leap - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [SSH key recon & crypto trail : traced SSH key comments and post-quantum key material across a server to recover the final flag.](./objectives/o16.md){: .card-link }
 
-## Act III
+    !!! success card "17. Going in Reverse - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Reverse engineering : reverse engineered a Commodore 64 BASIC program's XOR obfuscation to recover the hidden flag.](./objectives/o17.md){: .card-link }
 
-!!! success "18. Gnome Tea - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o18.md)
+??? success "Act III"
 
-!!! success "20. Snowcat RCE & Priv Esc - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o20.md)
+    !!! success card "18. Gnome Tea - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Firebase misconfiguration : exploited an exposed Firebase client config to query Firestore directly and leak a secret passphrase.](./objectives/o18.md){: .card-link }
 
-!!! success "21. Schrödinger's Scope - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o21.md)
+    !!! success card "20. Snowcat RCE & Priv Esc - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Web RCE & privilege escalation : chained a deserialization RCE with privilege escalation to recover an unused API key.](./objectives/o20.md){: .card-link }
 
-!!! success "23. On the Wire - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star:"
-    [Write-up](./objectives/o23.md)
+    !!! success card "21. Schrödinger's Scope - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star::fontawesome-regular-star:"
+        [Scoped web app pentest : conducted a scoped penetration test of a registration site while working around gnome interference.](./objectives/o21.md){: .card-link }
+
+    !!! success card "23. On the Wire - :fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-solid-star::fontawesome-regular-star:"
+        [Signal protocol analysis : decoded 1-Wire, SPI, and I²C captures and XOR-decrypted the payload to extract sensor data.](./objectives/o23.md){: .card-link }
